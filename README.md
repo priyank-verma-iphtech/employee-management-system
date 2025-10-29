@@ -21,14 +21,14 @@ A simple frontend project built using React.js to manage employee records.
 ## How to Run
 1. Clone the repo
    
-   git clone https://github.com/your-username/employee-management-system.git
+   git clone https://github.com/priyank-verma-iphtech/employee-management-system.git
 
    ---
  ## Install dependencies
-
- npm install  
+ npm install
+ 
  ---
  ## Start the App
-
  npm run dev
+ 
   ---
