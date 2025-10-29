@@ -11,3 +11,24 @@ A simple frontend project built using React.js to manage employee records.
 ## Features
 - Login & signup functionality
 - Dashboard view
+---
+
+## Technologies Used
+- React.js
+- Redux
+- CSS
+---
+## How to Run
+1. Clone the repo
+   
+   git clone https://github.com/your-username/employee-management-system.git
+
+   ---
+ ## Install dependencies
+
+ npm install  
+ ---
+ ## Start the App
+
+ npm run dev
+  ---
