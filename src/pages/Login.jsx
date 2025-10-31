@@ -9,10 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const users = useSelector((state) => state.auth.users);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const currentUser = useSelector((state) => state.auth.currentUser);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,24 +31,24 @@ const Login = () => {
     setErrors(validationErrors);
     if (!isValid) return;
 
-    dispatch(login({ email, password }));
+    // Check user manually (instead of waiting for Redux update)
+    const foundUser = users.find(
+      (u) => u.email === email && u.password === password
+    );
 
-    // Check login result
-    setTimeout(() => {
-      const updatedUser = currentUser;
-      if (updatedUser) {
-        toast.success("Login Successful!");
-        navigate("/dashboard");
-      } else {
-        toast.error("Invalid email or password");
-      }
-    }, 100);
+    if (foundUser) {
+      dispatch(login({ email, password }));
+      toast.success("Login Successful!");
+      navigate("/dashboard");
+    } else {
+      toast.error("Invalid email or password");
+    }
   };
 
   return (
     <div className="login">
       <div className="login-form-wrapper">
-      <img src={image} alt="Employee" className="img" />
+        <img src={image} alt="Employee" className="img" />
         <div className="login-form">
           <form onSubmit={handleSubmit}>
             <h2>USER LOGIN</h2>
