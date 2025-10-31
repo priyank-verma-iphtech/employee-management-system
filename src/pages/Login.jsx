@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/authSlice";
 import { Link, useNavigate } from "react-router-dom";
-import image from "./Employee.png";
+import image from "../assets/Employee Management System.png";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -48,6 +48,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login-form-wrapper">
+      <img src={image} alt="Employee" className="img" />
         <div className="login-form">
           <form onSubmit={handleSubmit}>
             <h2>USER LOGIN</h2>
@@ -73,7 +74,6 @@ const Login = () => {
             </p>
           </form>
         </div>
-        <img src={image} alt="Employee" className="img" />
       </div>
       <ToastContainer />
     </div>
